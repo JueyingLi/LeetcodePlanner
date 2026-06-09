@@ -11,7 +11,7 @@ if settings.database_url.startswith("sqlite"):
 
 _connect_args = {}
 if settings.database_url.startswith("postgresql"):
-    _connect_args["prepared_statement_cache_size"] = 0
+    _connect_args["statement_cache_size"] = 0
 
 engine = create_async_engine(
     settings.database_url,
