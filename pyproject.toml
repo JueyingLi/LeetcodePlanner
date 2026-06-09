@@ -2,7 +2,6 @@
 name = "leetcode-planner"
 version = "0.1.0"
 description = "Duolingo-style LeetCode preparation tool with AI-powered solutions and quizzes"
-readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.12"
 dependencies = [
