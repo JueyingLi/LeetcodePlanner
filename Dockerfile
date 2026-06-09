@@ -13,7 +13,11 @@ RUN npm run build
 FROM python:3.12-slim AS production
 WORKDIR /app
 
-RUN pip install uv
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libpq5 \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=ghcr.io/astral-sh/uv:latest /uv /uvx /bin/
 
 COPY pyproject.toml uv.lock ./
 COPY backend/ ./backend/
@@ -25,8 +29,6 @@ COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 
 RUN mkdir -p /app/data
 
-# DATABASE_URL is provided at runtime (Supabase Postgres). The app creates its
-# schema on startup via SQLAlchemy create_all, so no migration step is required.
 EXPOSE 8000
 
 CMD ["uv", "run", "uvicorn", "backend.main:app", "--host", "0.0.0.0", "--port", "8000"]

@@ -351,51 +351,39 @@ export function SolveView({
         </div>
       </div>
       <div className="space-y-2">
-        {!isReview && (
-          <div className="flex items-center gap-2">
-            <div className="flex rounded-lg overflow-hidden border border-[#2a3f4a]">
-              <button
-                onClick={() => setCodeMode("fill")}
-                disabled={!optimal?.code}
-                className={`px-3 py-1.5 text-xs font-medium disabled:opacity-30 ${codeMode === "fill" ? "bg-[#818CF8] text-white" : "bg-[#243640] text-[#9CA3AF]"}`}
-              >
-                Fill in
-              </button>
-              <button
-                onClick={() => setCodeMode("write")}
-                className={`px-3 py-1.5 text-xs font-medium ${codeMode === "write" ? "bg-[#58CC02] text-white" : "bg-[#243640] text-[#9CA3AF]"}`}
-              >
-                Write
-              </button>
-            </div>
+        <div className="flex items-center gap-2">
+          <div className="flex rounded-lg overflow-hidden border border-[#2a3f4a]">
             <button
-              onClick={() => genSolMut.mutate()}
-              disabled={genSolMut.isPending}
-              className="text-xs text-[#9CA3AF] active:text-white disabled:opacity-50"
+              onClick={() => setCodeMode("fill")}
+              disabled={!optimal?.code}
+              className={`px-3 py-1.5 text-xs font-medium disabled:opacity-30 ${codeMode === "fill" ? "bg-[#818CF8] text-white" : "bg-[#243640] text-[#9CA3AF]"}`}
             >
-              {genSolMut.isPending ? "Regenerating..." : "Regenerate"}
+              Fill in
             </button>
-            {codeMode === "write" && (
-              <button
-                onClick={() => { setCode(writeStub); setDirty(true); }}
-                className="text-xs text-[#9CA3AF] active:text-white"
-              >
-                Reset
-              </button>
-            )}
-          </div>
-        )}
-        {isReview && (
-          <div className="flex items-center gap-2">
             <button
-              onClick={() => { setCode(codeStub); setDirty(true); }}
+              onClick={() => setCodeMode("write")}
+              className={`px-3 py-1.5 text-xs font-medium ${codeMode === "write" ? "bg-[#58CC02] text-white" : "bg-[#243640] text-[#9CA3AF]"}`}
+            >
+              Write
+            </button>
+          </div>
+          <button
+            onClick={() => genSolMut.mutate()}
+            disabled={genSolMut.isPending}
+            className="text-xs text-[#9CA3AF] active:text-white disabled:opacity-50"
+          >
+            {genSolMut.isPending ? "Regenerating..." : "Regenerate"}
+          </button>
+          {codeMode === "write" && (
+            <button
+              onClick={() => { setCode(isReview ? codeStub : writeStub); setDirty(true); }}
               className="text-xs text-[#9CA3AF] active:text-white"
             >
               Reset
             </button>
-          </div>
-        )}
-        {(!isReview && codeMode === "fill" && optimal?.code) ? (
+          )}
+        </div>
+        {(codeMode === "fill" && optimal?.code) ? (
           <FillableCodeBlock
             code={optimal.fill_in_code || optimal.code}
             subtopicName={subtopicName}

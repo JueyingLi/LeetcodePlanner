@@ -42,7 +42,12 @@
       "Bash(lsof -iTCP:8000 -sTCP:LISTEN)",
       "Bash(lsof -iTCP:5173 -sTCP:LISTEN)",
       "Bash(kill 65330 65349)",
-      "Bash(python -c \"from backend.services.scheduler_service import sm2_update; print\\('OK'\\)\")"
+      "Bash(python -c \"from backend.services.scheduler_service import sm2_update; print\\('OK'\\)\")",
+      "Bash(git -C /Users/lijueying/Documents/LeetcodePlanner status uv.lock pyproject.toml)",
+      "Bash(git -C /Users/lijueying/Documents/LeetcodePlanner ls-files --error-unmatch uv.lock)",
+      "Bash(git -C /Users/lijueying/Documents/LeetcodePlanner diff HEAD -- uv.lock)",
+      "Bash(git -C /Users/lijueying/Documents/LeetcodePlanner log --oneline -3)",
+      "Bash(git -C /Users/lijueying/Documents/LeetcodePlanner diff HEAD -- pyproject.toml uv.lock backend/ Dockerfile)"
     ],
     "additionalDirectories": [
       "/private/tmp"
