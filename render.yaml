@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: leetcode-planner
+    runtime: docker
+    plan: free
+    envVars:
+      # Frontend Supabase config — Render passes service env vars as Docker build
+      # args, and Vite inlines them into the bundle at build time.
+      - key: VITE_SUPABASE_URL
+        sync: false
+      - key: VITE_SUPABASE_ANON_KEY
+        sync: false
+      # Backend runtime config.
+      - key: DATABASE_URL
+        sync: false
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_JWT_SECRET
+        sync: false
+      # JSON array of allowed origins, e.g. ["https://leetcode-planner.onrender.com"]
+      - key: CORS_ORIGINS
+        sync: false
+      - key: FERNET_KEY
+        generateValue: true

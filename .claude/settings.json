@@ -1,0 +1,51 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s http://localhost:8000/api/pattern-drill/deck)",
+      "Bash(kill 60352)",
+      "Bash(.venv/bin/uvicorn backend.main:app --reload --port 8000)",
+      "Bash(curl -s http://localhost:8000/api/pattern-drill/94/analysis -H \"Authorization: Bearer $\\(grep -o 'eyJ[^\"]*' /Users/lijueying/Documents/LeetcodePlanner/.env)",
+      "Bash(.venv/bin/python -c \"from backend.main import app; from backend.services.pattern_drill_service import list_browse_deck, get_pattern_analysis; print\\('All OK'\\)\")",
+      "Bash(/Users/lijueying/Documents/LeetcodePlanner/.venv/bin/python -c \"from backend.main import app; from backend.services.pattern_drill_service import list_browse_deck, get_pattern_analysis; print\\('All OK'\\)\")",
+      "Bash(pkill -f \"uvicorn backend.main\")",
+      "Bash(/Users/lijueying/Documents/LeetcodePlanner/.venv/bin/uvicorn backend.main:app --reload --port 8000)",
+      "Bash(/Users/lijueying/Documents/LeetcodePlanner/.venv/bin/uvicorn backend.main:app --reload --port 8000 > /tmp/lc_backend.log 2>&1 & *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:8000/docs)",
+      "Bash(curl -s http://localhost:8000/api/questions/stats)",
+      "Bash(/Users/lijueying/Documents/LeetcodePlanner/.venv/bin/python -c \"from backend.config import settings; print\\(f'supabase_url={settings.supabase_url!r}'\\)\")",
+      "Bash(/Users/lijueying/Documents/LeetcodePlanner/.venv/bin/python -c ' *)",
+      "Bash(pkill -f \"node.*vite\")",
+      "Bash(npx vite *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:5173)",
+      "Bash(curl -s http://localhost:5173/api/subtopics/topic-order)",
+      "Bash(python -c \"import sys; print\\(sys.executable\\)\")",
+      "Bash(.venv/bin/python -c \"from backend.services.study_plan_service import _google_questions\")",
+      "Bash(.venv/bin/python -c \"from backend.services.scheduler_service import search_pick_questions; from backend.services.quiz_service import pick_questions; from backend.services.subtopic_service import list_subtopics; from backend.services.question_service import create_question\")",
+      "Bash(.venv/bin/python -c \"from backend.services.scheduler_service import search_pick_questions; from backend.services.subtopic_service import list_subtopics; from backend.services.question_service import create_question; from backend.services.quiz_service import generate_quiz\")",
+      "Bash(.venv/bin/python -m alembic revision --autogenerate -m \"baseline_schema\")",
+      "Bash(.venv/bin/pip install *)",
+      "Bash(uv pip *)",
+      "Bash(.venv/bin/python -m alembic revision --autogenerate -m \"baseline_schema\" --sql)",
+      "Bash(.venv/bin/python -m alembic revision --autogenerate -m \"drop_questions_pattern_analysis\")",
+      "Bash(.venv/bin/python -m alembic stamp ce6a62668a73)",
+      "Bash(.venv/bin/python -m alembic stamp --purge ce6a62668a73)",
+      "Bash(.venv/bin/python -c \"from backend.main import app; print\\('OK'\\)\")",
+      "Bash(.venv/bin/python -c \"from backend.routers.code_mistakes import record_mistake; from backend.agents.mistake_analysis_agent import MistakeAnalysisAgent; print\\('OK'\\)\")",
+      "Bash(.venv/bin/python -c \"from backend.agents.pattern_analysis_agent import PatternAnalysisAgent; from backend.schemas.question import PatternAnalysis; print\\('OK'\\)\")",
+      "Bash(.venv/bin/python -c ' *)",
+      "Bash(.venv/bin/python -c \"from backend.routers.pattern_drill import regenerate_all, regenerate_analysis; print\\('OK'\\)\")",
+      "Bash(python -c \"from backend.routers.study_plan import router; print\\('OK'\\)\")",
+      "Bash(python -c \"from backend.main import app; print\\('Backend imports OK'\\)\")",
+      "Bash(python -c \"from backend.services.template_service import record_template_review, start_template; print\\('OK'\\)\")",
+      "Bash(node -e ' *)",
+      "Bash(xargs ls -la)",
+      "Bash(lsof -iTCP:8000 -sTCP:LISTEN)",
+      "Bash(lsof -iTCP:5173 -sTCP:LISTEN)",
+      "Bash(kill 65330 65349)",
+      "Bash(python -c \"from backend.services.scheduler_service import sm2_update; print\\('OK'\\)\")"
+    ],
+    "additionalDirectories": [
+      "/private/tmp"
+    ]
+  }
+}
